@@ -1,0 +1,27 @@
+{
+    "name": "Soil Moisture Control Pump",
+    "description": "",
+    "dependencies": {
+        "core": "*",
+        "microphone": "*",
+        "eprom-microbit": "github:zobclub/eprom-microbit#3424f25b4ce6257e2f43f8cff2fb3d3226cd37a2",
+        "MakerEdu_Hardware": "github:makerlabvn/makeredu_hardware#v0.0.2"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "main.py"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "target": "6.0.28",
+        "targetId": "microbit"
+    },
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "blocksprj"
+}
