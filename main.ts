@@ -1,5 +1,6 @@
 let soilMoisture = 0
 let setSoilMoisture = EEPROM.readw(0)
+// For Display
 basic.forever(function () {
     serial.writeLine("Soil Moisture: " + soilMoisture + " %")
     serial.writeLine("Set Soil Moisture: " + setSoilMoisture)
@@ -10,8 +11,9 @@ basic.forever(function () {
     } else {
         lcd.displayText(lcd.displaySymbol(lcd.Symbols.sym10), 16, 1)
     }
-    basic.pause(100)
+    basic.pause(500)
 })
+// For read button state
 basic.forever(function () {
     if (input.buttonIsPressed(Button.A)) {
         setSoilMoisture += -1
@@ -45,6 +47,7 @@ basic.forever(function () {
         basic.pause(2000)
     }
 })
+// For control output
 basic.forever(function () {
     if (soilMoisture > setSoilMoisture) {
         basic.showIcon(IconNames.Happy)
@@ -59,6 +62,7 @@ basic.forever(function () {
         music.play(music.tonePlayable(880, music.beat(BeatFraction.Eighth)), music.PlaybackMode.UntilDone)
     }
 })
+// For read Sensor
 basic.forever(function () {
     soilMoisture = Math.round(pins.map(
     pins.analogReadPin(AnalogPin.P0),
